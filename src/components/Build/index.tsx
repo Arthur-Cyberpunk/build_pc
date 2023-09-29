@@ -1,6 +1,6 @@
 import compatibilidades from "../../data/compatibilidades.json";
 
-const Home = () => {
+const Build = () => {
   return (
     <div>
       <div>
@@ -12,4 +12,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Build;
