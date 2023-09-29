@@ -68,19 +68,6 @@ export const BuildPages = styled.ul`
   }
 `;
 
-export const ButtonSign = styled.div`
-  color: #000;
-  cursor: pointer;
-
-  @media (max-width: 765px) {
-    display: none;
-  }
-
-  span {
-    font-size: 1.2rem;
-  }
-`;
-
 export const IconSign = styled.i`
   font-size: 1.6rem;
   color: #000;

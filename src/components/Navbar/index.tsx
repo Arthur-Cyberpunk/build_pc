@@ -20,13 +20,9 @@ const NavBar = () => {
             <a href="/">Home</a>
           </li>
           <li>
-            <a href="/build">Build</a>
+            <a href="/build">Montar</a>
           </li>
         </S.BuildPages>
-
-        <S.ButtonSign>
-          <span>Sign in</span>
-        </S.ButtonSign>
 
         <S.IconSign onClick={() => setOpen((prev) => !prev)}>
           {open ? <AiOutlineClose /> : <HiMenuAlt3 />}
@@ -37,7 +33,7 @@ const NavBar = () => {
           Home
         </a>
         <a href="/build" onClick={() => setOpen((prev) => !prev)}>
-          Build
+          Montar
         </a>
       </S.OptionsRoute>
     </S.Header>
