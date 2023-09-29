@@ -4,15 +4,14 @@ const HomeBuild = () => {
   return (
     <S.Section>
       <S.TextInfo>
-        <h4>Build your pc now</h4>
-        <h1>Welcome to your favorite builder pc</h1>
+        <h4>Monte seu PC agora</h4>
+        <h1>Bem vindo ao seu montador favorito</h1>
         <p>
-          Buy the perfect pc of your dreams. Unbeatable prices, flexible pick-up
-          options and much more.
+          Compre o PC perfeito dos seus sonhos. Preços imbatíveis e muito mais.
         </p>
-        <div className="bookRide">
-          <a href="/build">Book Ride</a>
-        </div>
+        <S.Build>
+          <a href="/build">Build PC</a>
+        </S.Build>
       </S.TextInfo>
     </S.Section>
   );

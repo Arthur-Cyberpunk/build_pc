@@ -2,8 +2,9 @@ import styled from "styled-components";
 
 export const Section = styled.section`
   width: 100%;
-  height: 100vh;
-  margin-top: 10rem;
+  margin-top: 16rem;
+  display: flex;
+  text-align: center;
 `;
 
 export const TextInfo = styled.div`
@@ -27,5 +28,24 @@ export const TextInfo = styled.div`
     font-size: 1.2rem;
     line-height: 1.6;
     margin-bottom: 2rem;
+  }
+`;
+
+export const Build = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  font-size: 1.2rem;
+
+  a {
+    background-color: #3ac245;
+    border-radius: 3px;
+    box-shadow: 0 10px 15px 0 rgba(104, 121, 194, 0.35);
+    padding: 1rem 1.6rem;
+    border: 2px solid #3ac245;
+    text-decoration: none;
+    color: #fff;
   }
 `;

@@ -45,7 +45,7 @@ export const LogoLink = styled.a`
   }
 
   span {
-    color: #00ff00;
+    color: #3ac245;
   }
 `;
 

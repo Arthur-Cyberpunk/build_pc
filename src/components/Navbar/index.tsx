@@ -20,11 +20,8 @@ const NavBar = () => {
             <a href="/">Home</a>
           </li>
           <li>
-            <a href="/#recipes">Build</a>
+            <a href="/build">Build</a>
           </li>
-          {/* <li>
-            <a href="/#recipes">Favorites</a>
-          </li> */}
         </S.BuildPages>
 
         <S.ButtonSign>
@@ -39,7 +36,7 @@ const NavBar = () => {
         <a href="/" onClick={() => setOpen((prev) => !prev)}>
           Home
         </a>
-        <a href="/#recipes" onClick={() => setOpen((prev) => !prev)}>
+        <a href="/build" onClick={() => setOpen((prev) => !prev)}>
           Build
         </a>
       </S.OptionsRoute>
