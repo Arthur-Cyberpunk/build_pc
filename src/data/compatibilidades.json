@@ -1,0 +1,18 @@
+{
+      "placa_mae": {
+        "Razor": ["i3", "i5"],
+        "AMD": ["i7", "i9"],
+        "Intel": ["i3", "i5", "i7", "i9"]
+      },
+      "processador": {
+        "i3": ["256GB SSD", "512GB SSD", "1TB HDD"],
+        "i5": ["256GB SSD","512GB SSD", "1TB HDD"],
+        "i7": ["256GB SSD","512GB SSD", "1TB HDD"],
+        "i9": ["512GB SSD", "1TB HDD"]
+      },
+      "placa_de_video": {
+        "NVIDIA GTX 1660": ["Razor"],
+        "AMD Radeon RX 580": ["Intel", "AMD"],
+        "NVIDIA RTX 3070": ["Intel", "AMD", "Razor"]
+      }
+  }
