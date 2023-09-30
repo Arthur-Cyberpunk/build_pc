@@ -1,25 +1,26 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { BuildContext } from "../../contexts/buildContext";
-import compatibilidades from "../../data/compatibilidades.json";
+import OptionsPartsPc from "../OptionsPartsPc";
 import * as S from "./styles";
 
 const Build = () => {
-  const [motherBoard, setMotherBoard] = useState<string>("");
+  const [progress, setProgress] = useState<number>(0);
 
-  const { setAvailableParts }: Record<string, any> = useContext(BuildContext);
+  const { step, setStep }: Record<string, any> = useContext(BuildContext);
 
-  const handleSelectChange = (event: any) => {
-    const optionMotherBoard = event.target.value;
-    setMotherBoard(optionMotherBoard);
+  const handleNext = () => {
+    if (progress < 100) {
+      setProgress(progress + 20);
+      setStep(step + 1);
+    }
   };
 
-  useEffect(() => {
-    setAvailableParts(
-      compatibilidades.placa_mae[
-        motherBoard as keyof typeof compatibilidades.placa_mae
-      ],
-    );
-  }, [motherBoard]);
+  const handlePrevious = () => {
+    if (progress > 0) {
+      setProgress(progress - 20);
+      setStep(step - 1);
+    }
+  };
 
   return (
     <S.Section>
@@ -29,13 +30,16 @@ const Build = () => {
           Selecionar a Placa Mãe, em seguida o Processador, Memória RAM, Placa
           de Vídeo e HD & SSD
         </span>
-        <S.Label htmlFor="selecionarOpcao">Selecione uma opção:</S.Label>
-        <S.DropdownSelect id="selecionarOpcao" onChange={handleSelectChange}>
-          <S.DropdownOption value=""></S.DropdownOption>
-          <S.DropdownOption value="razor">Razor</S.DropdownOption>
-          <S.DropdownOption value="amd">Amd</S.DropdownOption>
-          <S.DropdownOption value="intel">Intel</S.DropdownOption>
-        </S.DropdownSelect>
+        <S.ProgressBox>
+          <S.ProgressBarContainer>
+            <S.ProgressBarFill progress={progress}></S.ProgressBarFill>
+          </S.ProgressBarContainer>
+          <S.ButtonsContainer>
+            <S.ButtonBack onClick={handlePrevious}>Voltar</S.ButtonBack>
+            <S.ButtonSuccess onClick={handleNext}>Avançar</S.ButtonSuccess>
+          </S.ButtonsContainer>
+          <OptionsPartsPc />
+        </S.ProgressBox>
       </S.Containder>
     </S.Section>
   );

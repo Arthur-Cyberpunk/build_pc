@@ -5,11 +5,20 @@ export const BuildContext = createContext({});
 
 const BuildProvider = ({ children }: { children: ReactNode }) => {
   const [availableParts, setAvailableParts] = useState("");
+  const [step, setStep] = useState(-1);
 
-  console.log(availableParts);
+  console.log(step);
 
   return (
-    <BuildContext.Provider value={{ compatibilidades, setAvailableParts }}>
+    <BuildContext.Provider
+      value={{
+        compatibilidades,
+        availableParts,
+        setAvailableParts,
+        step,
+        setStep,
+      }}
+    >
       {children}
     </BuildContext.Provider>
   );

@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+interface BarProgressProps {
+  progress?: number;
+}
+
 export const Section = styled.section`
   width: 100%;
   margin-top: 8rem;
@@ -25,28 +29,60 @@ export const Containder = styled.div`
   }
 `;
 
-export const Label = styled.label`
-  font-size: 1.2rem;
-  color: #333;
-  margin-bottom: 1rem;
+export const ProgressBox = styled.div`
+  width: 100%;
 `;
 
-export const DropdownSelect = styled.select`
-  width: 200px;
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc;
+export const ProgressBarContainer = styled.div`
+  width: 100%;
+  height: 30px;
+  background-color: #ccc;
   border-radius: 4px;
-  background-color: #fff;
-  color: #333;
+  margin-bottom: 20px;
+  overflow: hidden;
+`;
 
-  &:focus {
-    border: 1px solid #007bff;
-    outline: none;
+export const ProgressBarFill = styled.div<BarProgressProps>`
+  height: 100%;
+  background-color: #007bff;
+  transition: width 0.3s ease-in-out;
+  width: ${({ progress }) => progress}%;
+`;
+
+export const ButtonsContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin: 2rem 0;
+`;
+
+export const ButtonSuccess = styled.button`
+  padding: 10px 20px;
+  background-color: #13b113;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease-in-out;
+
+  &:hover {
+    background-color: #19861f;
   }
 `;
 
-export const DropdownOption = styled.option`
-  background-color: #fff;
-  color: #333;
+export const ButtonBack = styled.button`
+  padding: 10px 20px;
+  background-color: #b81c1c;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease-in-out;
+
+  &:hover {
+    background-color: #d83c3c;
+  }
 `;
