@@ -1,19 +1,19 @@
 {
     "selected_placa_mae": {
       "razor": {
-        "processadores": ["i3", "i5"],
+        "processador": ["i3", "i5"],
         "memoria_ram": ["8GB", "16GB", "32GB"],
         "hd_ssd": ["256 SSD", "1TB HDD", "512GB SSD"],
         "placa_video": ["NVIDIA GTX 1660", "AMD Radeon RX 580", "NVIDIA RTX 3070"]
       },
       "amd": {
-        "processadores": ["i7", "i9"],
+        "processador": ["i7", "i9"],
         "memoria_ram": ["8GB", "16GB", "32GB"],
         "hd_ssd": ["256 SSD", "1TB HDD", "512GB SSD"],
         "placa_video": ["AMD Radeon RX 580", "NVIDIA RTX 3070"]
       },
       "intel": {
-        "processadores": ["i3", "i5", "i7", "i9"],
+        "processador": ["i3", "i5", "i7", "i9"],
         "memoria_ram": ["16GB", "32GB"],
         "hd_ssd": ["256 SSD", "1TB HDD", "512GB SSD"],
         "placa_video": ["AMD Radeon RX 580", "NVIDIA RTX 3070"]

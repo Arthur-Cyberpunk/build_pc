@@ -6,10 +6,11 @@ import * as S from "./styles";
 const Build = () => {
   const [progress, setProgress] = useState<number>(0);
 
-  const { step, setStep }: Record<string, any> = useContext(BuildContext);
+  const { availableParts, step, setStep }: Record<string, any> =
+    useContext(BuildContext);
 
   const handleNext = () => {
-    if (progress < 100) {
+    if (progress < 100 && availableParts) {
       setProgress(progress + 20);
       setStep(step + 1);
     }
