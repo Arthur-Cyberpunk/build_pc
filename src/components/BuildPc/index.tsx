@@ -31,7 +31,7 @@ const Build = () => {
     }
   };
 
-  console.log(definitiveComponents);
+  //console.log(definitiveComponents);
 
   const handlePrevious = () => {
     if (progress > 0) {

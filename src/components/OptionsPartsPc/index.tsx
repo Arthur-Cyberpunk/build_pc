@@ -32,6 +32,13 @@ const OptionsPartsPc = () => {
     setIsNextButtonDisabled(true);
   };
 
+  const handleSelectComponents = (event: any) => {
+    const optionComponents = event.target.value;
+    setComponents(optionComponents);
+    setSelectedOption(event.target.value);
+    setIsNextButtonDisabled(true);
+  };
+
   useEffect(() => {
     if (motherBoard === "razor" || "amd" || "intel")
       setAvailableParts(
@@ -40,13 +47,6 @@ const OptionsPartsPc = () => {
         ],
       );
   }, [motherBoard]);
-
-  const handleSelectComponents = (event: any) => {
-    const optionComponents = event.target.value;
-    setComponents(optionComponents);
-    setSelectedOption(event.target.value);
-    setIsNextButtonDisabled(true);
-  };
 
   return (
     <>
@@ -91,7 +91,25 @@ const OptionsPartsPc = () => {
               </S.DropdownSelect>
             </>
           ) : (
-            <></>
+            <>
+              <S.Label htmlFor="selecionarOpcao">
+                Selecione a {component[step]}:
+              </S.Label>
+              <S.DropdownSelect
+                id="selecionarOpcao"
+                onChange={handleSelectComponents}
+                value={selectedOption}
+              >
+                <S.DropdownOption value=""></S.DropdownOption>
+                {compatibilidades?.i9.hd_ssd?.map(
+                  (compatibilidade: string, index: any) => (
+                    <S.DropdownOption value={compatibilidade} key={index}>
+                      {compatibilidade}
+                    </S.DropdownOption>
+                  ),
+                )}
+              </S.DropdownSelect>
+            </>
           )}
         </>
       )}
