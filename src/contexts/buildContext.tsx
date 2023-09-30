@@ -1,5 +1,5 @@
 import { ReactNode, createContext, useRef, useState } from "react";
-import compatibilidades from "../data/compatibilidades.json";
+import compatibilitiesPc from "../data/compatibilitiesPc.json";
 
 export const BuildContext = createContext({});
 
@@ -10,7 +10,7 @@ const BuildProvider = ({ children }: { children: ReactNode }) => {
   const selectRef = useRef<HTMLSelectElement | null>(null);
   const [selectedOption, setSelectedOption] = useState<string>("");
   const [isNextButtonDisabled, setIsNextButtonDisabled] =
-    useState<boolean>(true);
+    useState<boolean>(false);
   const [definitiveComponents, setDefinitiveComponents] = useState<string[]>(
     [],
   );
@@ -20,7 +20,7 @@ const BuildProvider = ({ children }: { children: ReactNode }) => {
   return (
     <BuildContext.Provider
       value={{
-        compatibilidades,
+        compatibilitiesPc,
         availableParts,
         setAvailableParts,
         step,

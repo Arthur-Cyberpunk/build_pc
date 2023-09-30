@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Label = styled.label`
   font-size: 1.2rem;
   color: #333;
-  margin-bottom: 1rem;
+  margin-right: 1rem;
 `;
 
 export const DropdownSelect = styled.select`

@@ -33,12 +33,11 @@ const Build = () => {
     }
   };
 
-  //console.log(definitiveComponents);
-
   const handlePrevious = () => {
     if (progress > 0) {
       setProgress(progress - 20);
       setStep(step - 1);
+      setIsNextButtonDisabled(false);
 
       if (components.length > 0) {
         const previousSelection = definitiveComponents.pop();
@@ -61,8 +60,12 @@ const Build = () => {
             <S.ProgressBarFill progress={progress}></S.ProgressBarFill>
           </S.ProgressBarContainer>
           <S.ButtonsContainer>
-            <S.ButtonBack onClick={handlePrevious}>Voltar</S.ButtonBack>
-            <S.ButtonSuccess onClick={handleNext}>Avançar</S.ButtonSuccess>
+            <S.ButtonBack progress={progress} onClick={handlePrevious}>
+              Voltar
+            </S.ButtonBack>
+            <S.ButtonSuccess progress={progress} onClick={handleNext}>
+              Avançar
+            </S.ButtonSuccess>
           </S.ButtonsContainer>
           <OptionsPartsPc />
         </S.ProgressBox>

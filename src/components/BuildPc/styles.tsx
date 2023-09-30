@@ -57,32 +57,26 @@ export const ButtonsContainer = styled.div`
   margin: 2rem 0;
 `;
 
-export const ButtonSuccess = styled.button`
+export const ButtonSuccess = styled.button<BarProgressProps>`
   padding: 10px 20px;
-  background-color: #13b113;
+  background-color: ${(props) =>
+    props.progress !== undefined && props.progress < 100 ? "#13b113" : "gray"};
   color: #fff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   font-size: 16px;
   transition: background-color 0.3s ease-in-out;
-
-  &:hover {
-    background-color: #19861f;
-  }
 `;
 
-export const ButtonBack = styled.button`
+export const ButtonBack = styled.button<BarProgressProps>`
   padding: 10px 20px;
-  background-color: #b81c1c;
+  background-color: ${(props) =>
+    props.progress !== undefined && props.progress > 0 ? "#b81c1c" : "gray"};
   color: #fff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   font-size: 16px;
   transition: background-color 0.3s ease-in-out;
-
-  &:hover {
-    background-color: #d83c3c;
-  }
 `;

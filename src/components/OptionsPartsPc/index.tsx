@@ -1,6 +1,5 @@
 import { useContext, useEffect, useState } from "react";
 import { BuildContext } from "../../contexts/buildContext";
-import compatibilidades from "../../data/compatibilidades.json";
 import * as S from "./styles";
 
 const OptionsPartsPc = () => {
@@ -15,10 +14,10 @@ const OptionsPartsPc = () => {
   ];
 
   const {
+    compatibilitiesPc,
     availableParts,
     setAvailableParts,
     step,
-    components,
     setComponents,
     selectedOption,
     setSelectedOption,
@@ -28,25 +27,28 @@ const OptionsPartsPc = () => {
     processor,
   }: Record<string, any> = useContext(BuildContext);
 
-  const handleSelectChange = (event: any) => {
+  const handleSelectMotherBoard = (event: Record<string, any>) => {
     const optionMotherBoard = event.target.value;
     setMotherBoard(optionMotherBoard);
     setComponents(optionMotherBoard);
     setIsNextButtonDisabled(true);
   };
 
-  const handleSelectComponents = (event: any) => {
+  const handleSelectComponents = (event: Record<string, any>) => {
     const optionComponents = event.target.value;
-    setComponents(optionComponents);
-    setSelectedOption(event.target.value);
-    setIsNextButtonDisabled(true);
+
+    if (optionComponents !== "") {
+      setComponents(optionComponents);
+      setSelectedOption(event.target.value);
+      setIsNextButtonDisabled(true);
+    }
   };
 
   useEffect(() => {
     if (motherBoard === "razor" || "amd" || "intel")
       setAvailableParts(
-        compatibilidades.selected_placa_mae[
-          motherBoard as keyof typeof compatibilidades.selected_placa_mae
+        compatibilitiesPc.selected_placa_mae[
+          motherBoard as keyof typeof compatibilitiesPc.selected_placa_mae
         ],
       );
   }, [motherBoard]);
@@ -54,10 +56,8 @@ const OptionsPartsPc = () => {
   useEffect(() => {
     if (currentStep[step] === "hd_ssd" && processor === "i9") {
       setCompatibleHd(false);
-      console.log("alooooo");
     } else {
       setCompatibleHd(true);
-      console.log("falaaaa");
     }
   }, [currentStep]);
 
@@ -65,14 +65,14 @@ const OptionsPartsPc = () => {
     <>
       {step < 0 ? (
         <>
-          <S.Label htmlFor="selecionarOpcao">Selecione a Placa Mãe:</S.Label>
+          <S.Label htmlFor="selectOption">Selecione a Placa Mãe:</S.Label>
           <S.DropdownSelect
-            id="selecionarOpcao"
-            onChange={handleSelectChange}
+            id="selectOption"
+            onChange={handleSelectMotherBoard}
             value={motherBoard}
           >
             <S.DropdownOption value=""></S.DropdownOption>
-            {compatibilidades?.placa_mae.map(
+            {compatibilitiesPc?.placa_mae.map(
               (compatibilidade: string, index: any) => (
                 <S.DropdownOption value={compatibilidade} key={index}>
                   {compatibilidade}
@@ -85,27 +85,27 @@ const OptionsPartsPc = () => {
         <>
           {availableParts?.[currentStep[step]] !== undefined ? (
             <>
-              <S.Label htmlFor="selecionarOpcao">
+              <S.Label htmlFor="selectOption">
                 Selecione a {component[step]}:
               </S.Label>
               <S.DropdownSelect
-                id="selecionarOpcao"
+                id="selectOption"
                 onChange={handleSelectComponents}
                 value={selectedOption}
               >
                 <S.DropdownOption value=""></S.DropdownOption>
                 {compatibleHd
                   ? availableParts?.[currentStep[step]]?.map(
-                      (compatibilidade: string, index: any) => (
-                        <S.DropdownOption value={compatibilidade} key={index}>
-                          {compatibilidade}
+                      (compatibility: string, index: any) => (
+                        <S.DropdownOption value={compatibility} key={index}>
+                          {compatibility}
                         </S.DropdownOption>
                       ),
                     )
-                  : compatibilidades?.i9.hd_ssd?.map(
-                      (compatibilidade: string, index: any) => (
-                        <S.DropdownOption value={compatibilidade} key={index}>
-                          {compatibilidade}
+                  : compatibilitiesPc?.i9.hd_ssd?.map(
+                      (compatibility: string, index: any) => (
+                        <S.DropdownOption value={compatibility} key={index}>
+                          {compatibility}
                         </S.DropdownOption>
                       ),
                     )}
