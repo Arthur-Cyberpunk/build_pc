@@ -17,6 +17,7 @@ const Build = () => {
     setIsNextButtonDisabled,
     definitiveComponents,
     setDefinitiveComponents,
+    setProcessor,
   }: Record<string, any> = useContext(BuildContext);
 
   const handleNext = () => {
@@ -28,6 +29,7 @@ const Build = () => {
         ...definitiveComponents,
         components,
       ]);
+      setProcessor(definitiveComponents[1]);
     }
   };
 

@@ -23,6 +23,9 @@ const OptionsPartsPc = () => {
     selectedOption,
     setSelectedOption,
     setIsNextButtonDisabled,
+    compatibleHd,
+    setCompatibleHd,
+    processor,
   }: Record<string, any> = useContext(BuildContext);
 
   const handleSelectChange = (event: any) => {
@@ -47,6 +50,16 @@ const OptionsPartsPc = () => {
         ],
       );
   }, [motherBoard]);
+
+  useEffect(() => {
+    if (currentStep[step] === "hd_ssd" && processor === "i9") {
+      setCompatibleHd(false);
+      console.log("alooooo");
+    } else {
+      setCompatibleHd(true);
+      console.log("falaaaa");
+    }
+  }, [currentStep]);
 
   return (
     <>
@@ -81,35 +94,25 @@ const OptionsPartsPc = () => {
                 value={selectedOption}
               >
                 <S.DropdownOption value=""></S.DropdownOption>
-                {availableParts?.[currentStep[step]]?.map(
-                  (compatibilidade: string, index: any) => (
-                    <S.DropdownOption value={compatibilidade} key={index}>
-                      {compatibilidade}
-                    </S.DropdownOption>
-                  ),
-                )}
+                {compatibleHd
+                  ? availableParts?.[currentStep[step]]?.map(
+                      (compatibilidade: string, index: any) => (
+                        <S.DropdownOption value={compatibilidade} key={index}>
+                          {compatibilidade}
+                        </S.DropdownOption>
+                      ),
+                    )
+                  : compatibilidades?.i9.hd_ssd?.map(
+                      (compatibilidade: string, index: any) => (
+                        <S.DropdownOption value={compatibilidade} key={index}>
+                          {compatibilidade}
+                        </S.DropdownOption>
+                      ),
+                    )}
               </S.DropdownSelect>
             </>
           ) : (
-            <>
-              <S.Label htmlFor="selecionarOpcao">
-                Selecione a {component[step]}:
-              </S.Label>
-              <S.DropdownSelect
-                id="selecionarOpcao"
-                onChange={handleSelectComponents}
-                value={selectedOption}
-              >
-                <S.DropdownOption value=""></S.DropdownOption>
-                {compatibilidades?.i9.hd_ssd?.map(
-                  (compatibilidade: string, index: any) => (
-                    <S.DropdownOption value={compatibilidade} key={index}>
-                      {compatibilidade}
-                    </S.DropdownOption>
-                  ),
-                )}
-              </S.DropdownSelect>
-            </>
+            <></>
           )}
         </>
       )}
