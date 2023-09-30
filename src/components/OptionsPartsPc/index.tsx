@@ -20,11 +20,16 @@ const OptionsPartsPc = () => {
     step,
     components,
     setComponents,
+    selectedOption,
+    setSelectedOption,
+    setIsNextButtonDisabled,
   }: Record<string, any> = useContext(BuildContext);
 
   const handleSelectChange = (event: any) => {
     const optionMotherBoard = event.target.value;
     setMotherBoard(optionMotherBoard);
+    setComponents(optionMotherBoard);
+    setIsNextButtonDisabled(true);
   };
 
   useEffect(() => {
@@ -36,24 +41,24 @@ const OptionsPartsPc = () => {
       );
   }, [motherBoard]);
 
-  const handleSelectComponents = (
-    event: React.ChangeEvent<HTMLSelectElement>,
-  ) => {
+  const handleSelectComponents = (event: any) => {
     const optionComponents = event.target.value;
-    setComponents((components: string[]) => [...components, optionComponents]);
+    setComponents(optionComponents);
+    setSelectedOption(event.target.value);
+    setIsNextButtonDisabled(true);
   };
-
-  //console.log(availableParts?.[currentStep[step]]);
-  //console.log(motherBoard);
-  console.log(components);
 
   return (
     <>
       {step < 0 ? (
         <>
           <S.Label htmlFor="selecionarOpcao">Selecione a Placa Mãe:</S.Label>
-          <S.DropdownSelect id="selecionarOpcao" onChange={handleSelectChange}>
-            <S.DropdownOption value={motherBoard}></S.DropdownOption>
+          <S.DropdownSelect
+            id="selecionarOpcao"
+            onChange={handleSelectChange}
+            value={motherBoard}
+          >
+            <S.DropdownOption value=""></S.DropdownOption>
             {compatibilidades?.placa_mae.map(
               (compatibilidade: string, index: any) => (
                 <S.DropdownOption value={compatibilidade} key={index}>
@@ -73,7 +78,7 @@ const OptionsPartsPc = () => {
               <S.DropdownSelect
                 id="selecionarOpcao"
                 onChange={handleSelectComponents}
-                value={components}
+                value={selectedOption}
               >
                 <S.DropdownOption value=""></S.DropdownOption>
                 {availableParts?.[currentStep[step]]?.map(

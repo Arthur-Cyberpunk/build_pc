@@ -6,20 +6,43 @@ import * as S from "./styles";
 const Build = () => {
   const [progress, setProgress] = useState<number>(0);
 
-  const { availableParts, step, setStep }: Record<string, any> =
-    useContext(BuildContext);
+  const {
+    availableParts,
+    step,
+    setStep,
+    setSelectedOption,
+    components,
+    setComponents,
+    isNextButtonDisabled,
+    setIsNextButtonDisabled,
+    definitiveComponents,
+    setDefinitiveComponents,
+  }: Record<string, any> = useContext(BuildContext);
 
   const handleNext = () => {
-    if (progress < 100 && availableParts) {
+    if (progress < 100 && isNextButtonDisabled && availableParts) {
       setProgress(progress + 20);
       setStep(step + 1);
+      setIsNextButtonDisabled(false);
+      setDefinitiveComponents((definitiveComponents: string[]) => [
+        ...definitiveComponents,
+        components,
+      ]);
     }
   };
+
+  console.log(definitiveComponents);
 
   const handlePrevious = () => {
     if (progress > 0) {
       setProgress(progress - 20);
       setStep(step - 1);
+
+      if (components.length > 0) {
+        const previousSelection = definitiveComponents.pop();
+        setSelectedOption(previousSelection);
+        setComponents([...components]);
+      }
     }
   };
 

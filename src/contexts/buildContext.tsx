@@ -8,6 +8,12 @@ const BuildProvider = ({ children }: { children: ReactNode }) => {
   const [step, setStep] = useState<number>(-1);
   const [components, setComponents] = useState<string[]>([]);
   const selectRef = useRef<HTMLSelectElement | null>(null);
+  const [selectedOption, setSelectedOption] = useState("");
+  const [isNextButtonDisabled, setIsNextButtonDisabled] =
+    useState<boolean>(true);
+  const [definitiveComponents, setDefinitiveComponents] = useState<string[]>(
+    [],
+  );
 
   return (
     <BuildContext.Provider
@@ -20,6 +26,12 @@ const BuildProvider = ({ children }: { children: ReactNode }) => {
         components,
         setComponents,
         selectRef,
+        selectedOption,
+        setSelectedOption,
+        isNextButtonDisabled,
+        setIsNextButtonDisabled,
+        definitiveComponents,
+        setDefinitiveComponents,
       }}
     >
       {children}
