@@ -21,7 +21,7 @@ const OptionsPartsPc = () => {
     setComponents,
     selectedOption,
     setSelectedOption,
-    setIsNextButtonDisabled,
+    setIsNextButtonAble,
     compatibleHd,
     setCompatibleHd,
     processor,
@@ -31,16 +31,18 @@ const OptionsPartsPc = () => {
     const optionMotherBoard = event.target.value;
     setMotherBoard(optionMotherBoard);
     setComponents(optionMotherBoard);
-    setIsNextButtonDisabled(true);
+    setIsNextButtonAble(true);
   };
 
   const handleSelectComponents = (event: Record<string, any>) => {
     const optionComponents = event.target.value;
 
+    console.log(optionComponents);
+
     if (optionComponents !== "") {
       setComponents(optionComponents);
       setSelectedOption(event.target.value);
-      setIsNextButtonDisabled(true);
+      setIsNextButtonAble(true);
     }
   };
 

@@ -5,6 +5,7 @@ import * as S from "./styles";
 
 const Build = () => {
   const [progress, setProgress] = useState<number>(0);
+  const [showErrorMessage, setShowErrorMessage] = useState<boolean>(false);
 
   const {
     availableParts,
@@ -12,24 +13,26 @@ const Build = () => {
     setStep,
     setSelectedOption,
     components,
-    setComponents,
-    isNextButtonDisabled,
-    setIsNextButtonDisabled,
+    isNextButtonAble,
+    setIsNextButtonAble,
     definitiveComponents,
     setDefinitiveComponents,
     setProcessor,
   }: Record<string, any> = useContext(BuildContext);
 
   const handleNext = () => {
-    if (progress < 100 && isNextButtonDisabled && availableParts) {
+    if (progress < 100 && isNextButtonAble && availableParts) {
       setProgress(progress + 20);
       setStep(step + 1);
-      setIsNextButtonDisabled(false);
+      setIsNextButtonAble(false);
       setDefinitiveComponents((definitiveComponents: string[]) => [
         ...definitiveComponents,
         components,
       ]);
       setProcessor(definitiveComponents[1]);
+      setShowErrorMessage(false);
+    } else {
+      setShowErrorMessage(true);
     }
   };
 
@@ -37,12 +40,12 @@ const Build = () => {
     if (progress > 0) {
       setProgress(progress - 20);
       setStep(step - 1);
-      setIsNextButtonDisabled(false);
+      setIsNextButtonAble(true);
+      setShowErrorMessage(false);
 
       if (components.length > 0) {
         const previousSelection = definitiveComponents.pop();
         setSelectedOption(previousSelection);
-        setComponents([...components]);
       }
     }
   };
@@ -68,6 +71,15 @@ const Build = () => {
             </S.ButtonSuccess>
           </S.ButtonsContainer>
           <OptionsPartsPc />
+          {showErrorMessage ? (
+            <S.OptionsBox>
+              <S.ErrorMessage>
+                Selecione uma opção valida para poder avançar
+              </S.ErrorMessage>
+            </S.OptionsBox>
+          ) : (
+            <></>
+          )}
         </S.ProgressBox>
       </S.Containder>
     </S.Section>

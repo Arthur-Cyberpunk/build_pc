@@ -7,9 +7,9 @@ export const Label = styled.label`
 `;
 
 export const DropdownSelect = styled.select`
-  width: 200px;
+  width: 25%;
   padding: 10px;
-  font-size: 16px;
+  font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 4px;
   background-color: #fff;

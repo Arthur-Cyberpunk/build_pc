@@ -9,8 +9,7 @@ const BuildProvider = ({ children }: { children: ReactNode }) => {
   const [components, setComponents] = useState<string[]>([]);
   const selectRef = useRef<HTMLSelectElement | null>(null);
   const [selectedOption, setSelectedOption] = useState<string>("");
-  const [isNextButtonDisabled, setIsNextButtonDisabled] =
-    useState<boolean>(false);
+  const [isNextButtonAble, setIsNextButtonAble] = useState<boolean>(false);
   const [definitiveComponents, setDefinitiveComponents] = useState<string[]>(
     [],
   );
@@ -30,8 +29,8 @@ const BuildProvider = ({ children }: { children: ReactNode }) => {
         selectRef,
         selectedOption,
         setSelectedOption,
-        isNextButtonDisabled,
-        setIsNextButtonDisabled,
+        isNextButtonAble,
+        setIsNextButtonAble,
         definitiveComponents,
         setDefinitiveComponents,
         compatibleHd,
