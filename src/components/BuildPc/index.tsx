@@ -7,6 +7,7 @@ import * as S from "./styles";
 const Build = () => {
   const [progress, setProgress] = useState<number>(0);
   const [showErrorMessage, setShowErrorMessage] = useState<boolean>(false);
+  const [teste, setTeste] = useState<number>(0);
 
   const {
     availableParts,
@@ -26,13 +27,14 @@ const Build = () => {
     if (progress < 100 && isNextButtonAble && availableParts) {
       setProgress(progress + 20);
       setStep(step + 1);
+      setTeste(0);
       setIsNextButtonAble(false);
+      setShowErrorMessage(false);
+      setProcessor(definitiveComponents[1]);
       setDefinitiveComponents((definitiveComponents: string[]) => [
         ...definitiveComponents,
         components,
       ]);
-      setProcessor(definitiveComponents[1]);
-      setShowErrorMessage(false);
     } else if (progress === 100) {
       setShowErrorMessage(false);
     } else {
@@ -44,12 +46,17 @@ const Build = () => {
     if (progress > 0) {
       setProgress(progress - 20);
       setStep(step - 1);
-      setIsNextButtonAble(false);
+      setTeste(teste + 1);
+      setIsNextButtonAble(true);
       setShowErrorMessage(false);
+      const previousSelection = definitiveComponents.pop();
+      setSelectedOption(previousSelection);
 
-      if (components.length > 0) {
-        const previousSelection = definitiveComponents.pop();
-        setSelectedOption(previousSelection);
+      if (components.length > 0 && teste <= 0) {
+        setComponents(components);
+      } else {
+        setComponents("");
+        setIsNextButtonAble(false);
       }
     }
   };
