@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { BuildContext } from "../../contexts/buildContext";
+import ComponentsTables from "../ComponentsTables";
 import OptionsPartsPc from "../OptionsPartsPc";
 import * as S from "./styles";
 
@@ -13,6 +14,7 @@ const Build = () => {
     setStep,
     setSelectedOption,
     components,
+    setComponents,
     isNextButtonAble,
     setIsNextButtonAble,
     definitiveComponents,
@@ -31,6 +33,8 @@ const Build = () => {
       ]);
       setProcessor(definitiveComponents[1]);
       setShowErrorMessage(false);
+    } else if (progress === 100) {
+      setShowErrorMessage(false);
     } else {
       setShowErrorMessage(true);
     }
@@ -40,7 +44,7 @@ const Build = () => {
     if (progress > 0) {
       setProgress(progress - 20);
       setStep(step - 1);
-      setIsNextButtonAble(true);
+      setIsNextButtonAble(false);
       setShowErrorMessage(false);
 
       if (components.length > 0) {
@@ -80,6 +84,7 @@ const Build = () => {
           ) : (
             <></>
           )}
+          <ComponentsTables />
         </S.ProgressBox>
       </S.Containder>
     </S.Section>

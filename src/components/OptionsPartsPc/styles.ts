@@ -33,12 +33,15 @@ export const FinishBox = styled.div`
   align-items: center;
 `;
 
-export const FinishMessage = styled.span`
+export const FinishMessage = styled.p`
+  margin: 1rem 0;
+  font-size: 1.6rem;
+  font-weight: bold;
   color: #333;
 `;
 
 export const FinishButton = styled.button`
-  width: 20%;
+  width: 10rem;
   background-color: #13b113;
   padding: 15px 20px;
   border: none;
@@ -51,28 +54,4 @@ export const FinishButton = styled.button`
     color: #fff;
     text-decoration: none;
   }
-`;
-
-export const Table = styled.table`
-  width: 100%;
-  border-collapse: collapse;
-  margin: 20px 0;
-`;
-
-export const Tr = styled.tr`
-  background-color: #f2f2f2;
-`;
-
-export const Th = styled.th`
-  background-color: #007bff;
-  color: white;
-  padding: 10px;
-  text-align: left;
-`;
-
-export const Td = styled.td`
-  border: 1px solid #ddd;
-  padding: 8px;
-  text-align: left;
-  text-transform: uppercase;
 `;
