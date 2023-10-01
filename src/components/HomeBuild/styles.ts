@@ -2,9 +2,18 @@ import styled from "styled-components";
 
 export const Section = styled.section`
   width: 100%;
+  height: 100%;
   margin-top: 16rem;
   display: flex;
   text-align: center;
+
+  @media (max-width: 992px) {
+    margin-top: 12rem;
+  }
+
+  @media (max-width: 390px) {
+    margin-top: 5rem;
+  }
 `;
 
 export const TextInfo = styled.div`
