@@ -12,7 +12,6 @@ export const DropdownSelect = styled.select`
   font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 4px;
-  background-color: #fff;
   color: #333;
   text-transform: uppercase;
 
@@ -23,6 +22,33 @@ export const DropdownSelect = styled.select`
 `;
 
 export const DropdownOption = styled.option`
-  background-color: #fff;
   color: #333;
+`;
+
+export const FinishBox = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const FinishMessage = styled.span`
+  color: #333;
+`;
+
+export const FinishButton = styled.button`
+  width: 20%;
+  background-color: #13b113;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease-in-out;
+
+  a {
+    color: #fff;
+    text-decoration: none;
+  }
 `;

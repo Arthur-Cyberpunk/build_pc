@@ -114,7 +114,15 @@ const OptionsPartsPc = () => {
               </S.DropdownSelect>
             </>
           ) : (
-            <></>
+            <S.FinishBox>
+              <S.FinishMessage>
+                Parabéns, você escolheu suas peças, verifique as peças no quadro
+                e se estiver tudo certo, clique no botão abaixo para finalizar!!
+              </S.FinishMessage>
+              <S.FinishButton>
+                <a href="/">Terminar</a>
+              </S.FinishButton>
+            </S.FinishBox>
           )}
         </>
       )}
