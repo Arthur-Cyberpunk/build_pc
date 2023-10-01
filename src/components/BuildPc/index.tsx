@@ -52,7 +52,7 @@ const Build = () => {
       const previousSelection = definitiveComponents.pop();
       setSelectedOption(previousSelection);
 
-      if (components.length > 0 && teste <= 0) {
+      if (teste <= 0) {
         setComponents(components);
       } else {
         setComponents("");
