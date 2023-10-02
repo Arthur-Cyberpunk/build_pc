@@ -1,9 +1,24 @@
 import styled from "styled-components";
 
+export const SelectBox = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 992px) {
+    flex-direction: column;
+  }
+`;
+
 export const Label = styled.label`
   font-size: 1.2rem;
   color: #333;
+  font-weight: bold;
   margin-right: 1rem;
+
+  @media (max-width: 992px) {
+    margin: 0 0 1rem;
+  }
 `;
 
 export const DropdownSelect = styled.select`
@@ -14,6 +29,10 @@ export const DropdownSelect = styled.select`
   border-radius: 4px;
   color: #333;
   text-transform: uppercase;
+
+  @media (max-width: 992px) {
+    width: 14rem;
+  }
 
   &:focus {
     border: 1px solid #007bff;

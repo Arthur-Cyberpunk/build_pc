@@ -65,7 +65,7 @@ const OptionsPartsPc = () => {
   return (
     <>
       {step < 0 ? (
-        <>
+        <S.SelectBox>
           <S.Label htmlFor="selectOption">Selecione a Placa Mãe:</S.Label>
           <S.DropdownSelect
             id="selectOption"
@@ -81,9 +81,9 @@ const OptionsPartsPc = () => {
               ),
             )}
           </S.DropdownSelect>
-        </>
+        </S.SelectBox>
       ) : (
-        <>
+        <S.SelectBox>
           {availableParts?.[currentStep[step]] !== undefined ? (
             <>
               <S.Label htmlFor="selectOption">
@@ -123,7 +123,7 @@ const OptionsPartsPc = () => {
               </S.FinishButton>
             </S.FinishBox>
           )}
-        </>
+        </S.SelectBox>
       )}
     </>
   );
