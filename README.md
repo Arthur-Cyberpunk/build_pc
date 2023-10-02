@@ -4,7 +4,7 @@
 
   <p>Um site para você  montar o PC dos seus sonhos.</p>
 
-👉 Live Demo: <a href='https://build-pc-alpha.vercel.app/build'>Live Demo</a>
+👉 Live Demo: <a href='https://build-pc-alpha.vercel.app/'>Live Demo</a>
 
 <h2>Sobre o projeto</h2>
 
