@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { BuildContext } from "../../contexts/buildContext";
-import ComponentsTables from "../ComponentsTables";
+import ComponentTables from "../ComponentTables";
 import OptionsPartsPc from "../OptionsPartsPc";
 import * as S from "./styles";
 
@@ -66,8 +66,9 @@ const Build = () => {
       <S.Containder>
         <h1>Monte seu configuração</h1>
         <span>
-          Selecionar a Placa Mãe, em seguida o Processador, Memória RAM, Placa
-          de Vídeo e HD & SSD
+          As peças dos computadores tem suas peças compatíveis, portanto,
+          escolha com sabedoria. Selecionar a Placa Mãe, em seguida o
+          Processador, Memória RAM, Placa de Vídeo e HD & SSD.
         </span>
         <S.ProgressBox>
           <S.ProgressBarContainer>
@@ -91,7 +92,7 @@ const Build = () => {
           ) : (
             <></>
           )}
-          <ComponentsTables />
+          <ComponentTables />
         </S.ProgressBox>
       </S.Containder>
     </S.Section>
