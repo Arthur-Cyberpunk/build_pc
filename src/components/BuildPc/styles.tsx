@@ -36,14 +36,14 @@ export const ProgressBox = styled.div`
 export const ProgressBarContainer = styled.div`
   width: 100%;
   height: 2rem;
-  background-color: #ccc;
+  background-color: #c0c0c0;
   border-radius: 4px;
   overflow: hidden;
 `;
 
 export const ProgressBarFill = styled.div<BarProgressProps>`
   height: 100%;
-  background-color: #007bff;
+  background-color: #1e90ff;
   transition: width 0.3s ease-in-out;
   width: ${({ progress }) => progress}%;
 `;
@@ -59,7 +59,9 @@ export const ButtonsContainer = styled.div`
 export const ButtonSuccess = styled.button<BarProgressProps>`
   padding: 10px 20px;
   background-color: ${(props) =>
-    props.progress !== undefined && props.progress < 100 ? "#13b113" : "gray"};
+    props.progress !== undefined && props.progress < 100
+      ? "#13b113"
+      : "#808080"};
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -71,7 +73,7 @@ export const ButtonSuccess = styled.button<BarProgressProps>`
 export const ButtonBack = styled.button<BarProgressProps>`
   padding: 10px 20px;
   background-color: ${(props) =>
-    props.progress !== undefined && props.progress > 0 ? "#b81c1c" : "gray"};
+    props.progress !== undefined && props.progress > 0 ? "#b81c1c" : "#808080"};
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -86,6 +88,6 @@ export const OptionsBox = styled.div`
 `;
 
 export const ErrorMessage = styled.span`
-  color: red;
+  color: #ff0000;
   font-size: 2rem;
 `;

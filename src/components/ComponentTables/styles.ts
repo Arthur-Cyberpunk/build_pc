@@ -11,8 +11,8 @@ export const Tr = styled.tr`
 `;
 
 export const Th = styled.th`
-  background-color: #007bff;
-  color: white;
+  background-color: #1e90ff;
+  color: #fff;
   padding: 10px;
   text-align: left;
 `;
