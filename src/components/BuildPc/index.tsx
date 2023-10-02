@@ -47,17 +47,11 @@ const Build = () => {
       setProgress(progress - 20);
       setStep(step - 1);
       setTeste(teste + 1);
-      setIsNextButtonAble(true);
+      setIsNextButtonAble(false);
       setShowErrorMessage(false);
       const previousSelection = definitiveComponents.pop();
       setSelectedOption(previousSelection);
-
-      if (teste <= 0) {
-        setComponents(components);
-      } else {
-        setComponents("");
-        setIsNextButtonAble(false);
-      }
+      setComponents("");
     }
   };
 
