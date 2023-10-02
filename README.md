@@ -19,11 +19,6 @@
 » Context api <br>
 » React-router-dom
 
-<p>- O framework React JS, ja foi previamente posto como requisito.</p>
-<p>- O Styled Components, ja foi previamente posto como requisito..</p>
-<p>- O Context api, uma forma eficiente de passar props para outros componentes e não atrapalhar a performance do site.</p>
-<p>- O React-router-dom, para poder construir a home(/), e poder navegar para o build(/build), com mais facilidade.</p>
-
 <h2>Tomadas de decisões</h2>
 
 <p>Decidi por criar uma Home, onde o usuário pudesse ter uma mensagem de bem vindo e não ir diretamente para a tela de montagem do computador.</p>
